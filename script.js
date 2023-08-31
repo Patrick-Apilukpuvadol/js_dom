@@ -1,5 +1,5 @@
 let favouriteMedia = [
-    "pokemon",
+	"pokemon",
 	"digimon",
 	"supernatural",
 	"sherlock",
@@ -11,47 +11,80 @@ let favouriteMedia = [
 	"yugi-oh",
 	"oppenheimer",
 	"dragonball z"
-]
-// Make sure to wrap code in functions to make sure we can confirm what is working and to prevent errors
+];
+
+
 function exampleHello(){
-    console.log("hello world");
-} 
+	console.log("hello world"); 
+}
 
 function createListOfMedia(){
 
-    let rootUlNode = document.querySelector("ul");
-    let exampleNode = document.getElementsByTagName("ul");
+	let rootUlNode = document.querySelector("ul");
 
-    exampleNode
+	rootUlNode.innerHTML = "";
 
-    favouriteMedia.forEach(mediaItem => {
-        // Create an element but does not display it yet
-        let newListItem = document.createElement("li");
 
-        // Assign some data to the element
-        newListItem.textContent = mediaItem;
-        newListItem.id = mediaItem;
+	// let exampleNode = document.getElementsByClassName("bananas")[0];
+	// let exampleNode = document.getElementById("mediaList");
 
-        // Creating a button that will remove this item later
-        let removeItemButton = document.createElement("button");
+	favouriteMedia.forEach(mediaItem => {
+		// Create an element but do not display it yet 
+		let newListItem = document.createElement("li");
 
-        removeItemButton.onclick = (() => removeItemFromList(mediaItem));
+		// Assign some data to the element
+		newListItem.textContent = mediaItem;
+		newListItem.id = mediaItem;
 
-        removeItemButton.textContent = "Remove item";
+		// Creating a button that will remove this item later
+		let removeItemButton = document.createElement("button");
 
-        // Add the button to the List item
-        newListItem.appendChild(removeItemButton);
+		removeItemButton.onclick = (() => removeItemFromList(mediaItem));
 
-        // Add the element to the visible page
-        rootIlNode.appendChild(newListItem);
+		removeItemButton.textContent = "Remove item";
 
-    });
+		// Add the button to the list item 
+		newListItem.appendChild(removeItemButton);
+
+
+		// Add the element to the visible page
+		rootUlNode.appendChild(newListItem);
+
+
+	});
 }
 
 function removeItemFromList(targetItem){
-    let targetItemNode = document.getElementById(targetItem);
-    if (targetItem){
-        targetItemNode.parentNode.removeChild(targetItemNode);
-    }
+	let targetItemNode = document.getElementById(targetItem);
+	if (targetItemNode){
+		//targetItemNode.parentNode.removeChild(targetItemNode);
+
+		// Modify the array
+		favouriteMedia = favouriteMedia.filter(item => item !== targetItem);
+
+		// Regenerate the visuals
+		createListOfMedia();
+
+	}
+}
+
+
+function addItemToList(event){
+	event.preventDefault();
+	console.log("we tried to add an item to the list!");
+
+	let realInputField = document.getElementById("real-nameinput");
+	let newItemName = realInputField.value;
+	console.log("newItemName is: " + newItemName);
+	// add item to list
+	favouriteMedia.push(newItemName);
+
+	// generate a new list 
+	createListOfMedia();
 
 }
+
+let realFormSubmitButton = document.getElementById("real-formsubmit");
+realFormSubmitButton.addEventListener("click", addItemToList);
+// functionName() runs immediately, do not want!!
+// realFormSubmitButton.addEventListener("click", addItemToList());

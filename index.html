@@ -6,10 +6,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
-    <!-- Importing the list generated and item deletion logic -->
-    <script src="./script.js"></script>
-    <!-- Import the CSS theme -->
-    <script src="./themeControl.js"></script>
+
 
 </head>
 <body>
@@ -19,8 +16,19 @@
     <hr />
     <br />
 
+    <h2>(Real Form)</h2>
+    <form>
+        <label>New Item:</label>
+        <input type="text" id="real-nameinput" />
+        <h6 id="real-testhint">Not sure what to write? Check IMDB</h6>
+        <button id="real-formsubmit">Submit new item</button>
+
+    </form>
+
     <h2>Favourite Media</h2>
     <ul id="mediaList">
+
+    </ul>
 
         <button onclick="changeCSSTheme('dark')">
             Change theme to dark
@@ -34,11 +42,15 @@
             Toggle light/dark
         </button>
 
-    </ul>
+        <!-- Importing the list generated and item deletion logic -->
+        <script src="./script.js"></script>
+        <!-- Import the CSS theme -->
+        <script src="./themeControl.js"></script>
 
     <script>
         exampleHello();
         createListOfMedia();
+        changeCSSTheme("dark");
     </script>
     
 </body>
