@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./style.css">
 
 
 </head>
 <body>
 
-    <h1>Welcome</h1>
-    <p>Some subheading goes here</p>
-    <hr />
-    <br />
+	<h1>Welcome!</h1>
+	<p>Some subheading goes here</p>
+	<hr />
+	<br />
 
-    <h2>(Real Form)</h2>
-    <form>
-        <label>New Item:</label>
-        <input type="text" id="real-nameinput" />
-        <h6 id="real-testhint">Not sure what to write? Check IMDB</h6>
-        <button id="real-formsubmit">Submit new item</button>
+	<h2>(Real form)</h2>
+	<form>
+		<label>New item:</label>
+		<input type="text" id="real-nameinput" />
+		<h6 id="real-texthint">Not sure what to write? Check IMDB!</h6>
+		<button onclick="addItemToList(event)" id="real-formsubmit">Submit new item</button>
+	</form>
 
-    </form>
 
-    <h2>Favourite Media</h2>
-    <ul id="mediaList">
 
-    </ul>
+	<hr />	
 
-        <button onclick="changeCSSTheme('dark')">
-            Change theme to dark
-        </button>
+	<h2>Favourite Media</h2>
+	<ul id="mediaList" class="bananas">
 
-        <button onclick="changeCSSTheme('light')">
-            Change theme to light
-        </button>
 
-        <button onclick=""toggleLightDark>
-            Toggle light/dark
-        </button>
+	</ul>
 
-        <!-- Importing the list generated and item deletion logic -->
-        <script src="./script.js"></script>
-        <!-- Import the CSS theme -->
-        <script src="./themeControl.js"></script>
+	<button onclick="changeCSSTheme('dark')">
+		Change theme to dark
+	</button>
 
-    <script>
-        exampleHello();
-        createListOfMedia();
-        changeCSSTheme("dark");
-    </script>
-    
+	<button onclick="changeCSSTheme('light')">
+		Change theme to light
+	</button>
+
+	<button onclick="toggleLightDark()">
+		Toggle light/dark
+	</button>
+
+
+	<!-- Import the list generation & item deletion logic: -->
+	<script src="./script.js"></script>
+	<!-- Import the CSS theme control logic: -->
+	<script src="./themeControl.js"></script>
+
+	<script>
+		exampleHello();
+		createListOfMedia();
+		changeCSSTheme("dark");
+	</script>
 </body>
 </html>
